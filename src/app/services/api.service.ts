@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,5 +6,12 @@ import { Injectable } from '@angular/core';
 })
 export class APIService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+   
+  getUsername(username:string){
+    return username
+  }
+  getRepo(){
+    return this.http.get()
+  }
 }

@@ -1,6 +1,6 @@
-import { OnDestroy, OnInit } from '@angular/core';
+// import { OnDestroy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
-import { Subscription } from 'rxjs';
+// import { Subscription } from 'rxjs';
 // import { APIService } from './services/api.service';
 
 @Component({
@@ -8,9 +8,15 @@ import { Subscription } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy{
+export class AppComponent {
   title = 'Github-project';
-  // mySubscription!:Subscription
+  
+
+}
+
+
+
+// mySubscription!:Subscription
 
   // constructor(private apiService:APIService){
   // }
@@ -37,6 +43,3 @@ export class AppComponent implements OnInit, OnDestroy{
   // //   this.getPuplicReposWithPromise(username)
   // //   return false;
   // // }
-
-}
-

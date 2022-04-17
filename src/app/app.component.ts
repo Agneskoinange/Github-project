@@ -12,7 +12,28 @@ export class AppComponent implements OnInit {
   title = 'Github-project';
 
 
+  repos:repo;
+
+    constructor(public apiservice: APIService) {
+     }
+
+
+    ngOnInit() {
+      this.username("agneskoinange");
+    }
+
+    searchRepos(username: any){
+      this.apiservice.searchRepo(this.searchRepos).then(()=>{
+        this.repos=this.apiservice.repos;
   
+
+        },
+      
+        (error: any)=>{
+          console.log(error)
+        }
+      )
+      
     }
   
 

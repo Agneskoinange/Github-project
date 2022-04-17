@@ -1,7 +1,7 @@
 import { OnDestroy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { APIService } from './services/api.service';
+// import { APIService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
@@ -10,33 +10,33 @@ import { APIService } from './services/api.service';
 })
 export class AppComponent implements OnInit, OnDestroy{
   title = 'Github-project';
-  mySubscription!:Subscription
+  // mySubscription!:Subscription
 
-  constructor(private apiService:APIService){
-  }
-  ngOnDestroy(): void {
-    this.mySubscription.unsubscribe();
-  }
-
-  ngOnInit(){
-    this.mySubscription.add (
-    this.apiService.getRepo("").subscribe((repos)=>
-    console.log(repos))
-    )
-  }
-
-  // asyc getPuplicReposWithPromise (username:string){
-  // cosnt repos =await this.apiService.getRepo(username)
-  // this.repos=repos
-
+  // constructor(private apiService:APIService){
+  // }
+  // ngOnDestroy(): void {
+  //   this.mySubscription.unsubscribe();
   // }
 
-
-  // searchRepos(){
-  //   let username =this.name.value;
-  //   this.getPuplicReposWithPromise(username)
-  //   return false;
+  // ngOnInit(){
+  //   this.mySubscription.add (
+  //   this.apiService.getRepo("").subscribe((repos)=>
+  //   console.log(repos))
+  //   )
   // }
+
+  // // asyc getPuplicReposWithPromise (username:string){
+  // // cosnt repos =await this.apiService.getRepo(username)
+  // // this.repos=repos
+
+  // // }
+
+
+  // // searchRepos(){
+  // //   let username =this.name.value;
+  // //   this.getPuplicReposWithPromise(username)
+  // //   return false;
+  // // }
 
 }
 

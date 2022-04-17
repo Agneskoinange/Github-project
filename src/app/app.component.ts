@@ -1,4 +1,6 @@
+import { OnDestroy, OnInit } from '@angular/core';
 import { Component } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { APIService } from './services/api.service';
 
 @Component({
@@ -6,16 +8,20 @@ import { APIService } from './services/api.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit, OnDestroy{
   title = 'Github-project';
+  mySubscription!:Subscription
+
   constructor(private apiService:APIService){
   }
-
-  ngOnInit(){
-    const repos = this.apiService.getRepo().subscribe((repos)=>);
-  }
+ngOnDestroy(): void {
+  this.mySubscription.unsubscribe();
 }
-function ngOnInit() {
-  throw new Error('Function not implemented.');
+  ngOnInit(){
+    this.mySubscription.add (
+    this.apiService.getRepo("").subscribe((repos)=>
+    console.log(repos)
+    )
+  }
 }
 

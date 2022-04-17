@@ -20,7 +20,7 @@ ngOnDestroy(): void {
   ngOnInit(){
     this.mySubscription.add (
     this.apiService.getRepo("").subscribe((repos)=>
-    console.log(repos)
+    console.log(repos))
     )
   }
 }

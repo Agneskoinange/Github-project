@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
 import { map } from 'rxjs';
 import 'rxjs/Rx';
-import { UserClass } from '../user-class';
-import { RepositoryClass } from '../repository-class';
-import { environment } from 'src/environments/environment';
+import { pipe } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'

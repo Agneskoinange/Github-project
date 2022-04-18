@@ -1,7 +1,6 @@
 
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
+
 import { APIService } from './services/api.service';
 
 @Component({
@@ -35,6 +34,7 @@ export class AppComponent {
      this.apiservice.getRepo().subscribe((repo: any) => {
        this.repo = repo;
      });
+     
      // Console.log('It works');
      this.apiservice.getRepos().subscribe((repos: any) => {
        // Console.log(user);

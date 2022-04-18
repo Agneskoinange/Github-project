@@ -22,12 +22,13 @@ export class AppComponent {
       console.log(repo);
       this.repo = repo;
     });
+
     this.apiservice.getRepos().subscribe((repos: any) => {
       this.repos = repos;
     });
   }
 
-    ngOnInit() {
+    ngOnInit(): void {
     }
     
    searchRepo() {

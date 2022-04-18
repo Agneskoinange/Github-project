@@ -1,8 +1,10 @@
 
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 
 import { APIService } from './services/api.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +18,7 @@ export class AppComponent {
   repo: any= [];
   repos: any= [];
   username!: string;
+  name: any;
   
   constructor(private apiservice: APIService) {
     this.apiservice.getRepo().subscribe((repo: any) => {
@@ -23,13 +26,12 @@ export class AppComponent {
       this.repo = repo;
     });
     this.apiservice.getRepos().subscribe((repos: any) => {
-      // console.log(user);
       this.repos = repos;
     });
-    }
+  }
 
-    ngOnInit() {
-    }
+    // ngOnInit() {
+    // }
     
    searchRepo() {
      this.apiservice.updateRepo(this.username);
@@ -37,15 +39,38 @@ export class AppComponent {
        this.repo = repo;
      });
      
-     // Console.log('It works');
-     this.apiservice.getRepos().subscribe((repos: any) => {
-       // Console.log(user);
+     this.apiservice.getRepos().subscribe((repos: any) => { 
        this.repos = repos;
      });
+    }
+
+    mySubscription!:Subscription
+
+  // constructor(private apiService:APIService){
+  // }
+  ngOnDestroy(): void {
+    this.mySubscription.unsubscribe();
+  }
+
+  ngOnInit(){
+    this.mySubscription.add (
+    this.apiservice.getRepo().subscribe((repos: any)=>
+    console.log(repos))
+    )
+  }
+
+  asyc: any getPuplicReposWithPromise (username:string){
+  cosnt this.repos =this.apiservice.getRepo(username)
+  this.repos=this.repos
 
   }
-  
 
+
+  searchRepos(){
+    let username =this.name.value;
+    this.getPuplicReposWithPromise(username)
+    return false;
+  }
 }
 
 

@@ -26,6 +26,7 @@ export class APIService {
     .pipe(map((result: any) => result));
 
   }
+  
   get RepositoryClass() {
     return this.http.get(' https://api.github.com/users/' + this.username + '/repos')
     .pipe(map((result: any) => result));

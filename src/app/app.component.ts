@@ -1,39 +1,42 @@
 
-import { Component,OnInit } from '@angular/core';
-// import { Subscription } from 'rxjs';
-import 'rxjs/add/operator/map';
+import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { APIService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers:[APIService]
 })
 export class AppComponent {
   title = 'Github-project';
 
   repo: any= [];
   repos: any= [];
-  username: string;
+  username!: string;
   constructor(private apiservice: APIService) {
-    this.apiservice.getRepo().subscribe(repo => {
+    this.apiservice.getRepo().subscribe((repo: any) => {
       console.log(repo);
       this.repo = repo;
     });
-    this.apiservice.getRepos().subscribe(repos => {
+    this.apiservice.getRepos().subscribe((repos: any) => {
       // console.log(user);
       this.repos = repos;
     });
-  }
-  ngOnInit() {
-  }
+    }
+
+    ngOnInit() {
+    }
+    
    searchRepo() {
      this.apiservice.updateRepo(this.username);
-     this.apiservice.getRepo().subscribe(repo => {
+     this.apiservice.getRepo().subscribe((repo: any) => {
        this.repo = repo;
      });
      // Console.log('It works');
-     this.apiservice.getRepos().subscribe(repos => {
+     this.apiservice.getRepos().subscribe((repos: any) => {
        // Console.log(user);
        this.repos = repos;
      });

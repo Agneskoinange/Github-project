@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/map';
+import { map } from 'rxjs';
+import 'rxjs/Rx';
 import { UserClass } from '../user-class';
 import { RepositoryClass } from '../repository-class';
 import { environment } from 'src/environments/environment';
@@ -10,20 +12,25 @@ import { environment } from 'src/environments/environment';
 })
 
 export class APIService {
+  getRepos: any;
+  getRepo() {
+    throw new Error('Method not implemented.');
+  }
+  username: string;
 
   constructor(private http: HttpClient) {
     console.log('Github Service Ready...');
-    this.username =  'agneskoinange';
+    this.username = 'agneskoinange';
 
   }
   getUserClass() {
     return this.http.get('https://api.github.com/users/' + this.username)
-    .map(result => result);
+    .map((result: any) => result);
 
   }
   get RepositoryClass() {
     return this.http.get(' https://api.github.com/users/' + this.username + '/repos')
-    .map(result => result);
+    .map((result: any) => result);
   }
 
   updateRepo(username: string) {

@@ -1,6 +1,7 @@
-import { OnInit } from '@angular/core';
-import { Component } from '@angular/core';
+
+import { Component,OnInit } from '@angular/core';
 // import { Subscription } from 'rxjs';
+import 'rxjs/add/operator/map';
 import { APIService } from './services/api.service';
 
 @Component({
@@ -8,33 +9,36 @@ import { APIService } from './services/api.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'Github-project';
 
+  repo: any= [];
+  repos: any= [];
+  username: string;
+  constructor(private apiservice: APIService) {
+    this.apiservice.getRepo().subscribe(repo => {
+      console.log(repo);
+      this.repo = repo;
+    });
+    this.apiservice.getRepos().subscribe(repos => {
+      // console.log(user);
+      this.repos = repos;
+    });
+  }
+  ngOnInit() {
+  }
+   searchRepo() {
+     this.apiservice.updateRepo(this.username);
+     this.apiservice.getRepo().subscribe(repo => {
+       this.repo = repo;
+     });
+     // Console.log('It works');
+     this.apiservice.getRepos().subscribe(repos => {
+       // Console.log(user);
+       this.repos = repos;
+     });
 
-  repos:repo;
-
-    constructor(public apiservice: APIService) {
-     }
-
-
-    ngOnInit() {
-      this.username("agneskoinange");
-    }
-
-    searchRepos(username: any){
-      this.apiservice.searchRepo(this.searchRepos).then(()=>{
-        this.repos=this.apiservice.repos;
-  
-
-        },
-      
-        (error: any)=>{
-          console.log(error)
-        }
-      )
-      
-    }
+   }
   
 
 }

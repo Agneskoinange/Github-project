@@ -1,74 +1,10 @@
-
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
-
-import { APIService } from './services/api.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
-  providers:[APIService]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'Github-project';
-
-  repo: any= [];
-  repos: any= [];
-  username!: string;
-  
-  constructor(private apiservice: APIService) {
-    this.apiservice.getUserClass().subscribe((repo: any) => {
-      console.log(repo);
-      this.repo = repo;
-    });
-    this.apiservice.getRepos().subscribe((repos: any) => {
-      this.repos = repos;
-    });
-  }
-
-    ngOnInit() {
-    }
-    
-   searchUserClass() {
-     this.apiservice.updateRepo(this.username);
-     this.apiservice.getUserClass().subscribe((repo: any) => {
-       this.repo = repo;
-     });
-     
-     this.apiservice.getRepos().subscribe((repos: any) => { 
-       this.repos = repos;
-     });
-    }
 }
-
-
-
-// mySubscription!:Subscription
-
-  // constructor(private apiService:APIService){
-  // }
-  // ngOnDestroy(): void {
-  //   this.mySubscription.unsubscribe();
-  // }
-
-  // ngOnInit(){
-  //   this.mySubscription.add (
-  //   this.apiService.getRepo("").subscribe((repos)=>
-  //   console.log(repos))
-  //   )
-  // }
-
-  // // asyc getPuplicReposWithPromise (username:string){
-  // // cosnt repos =await this.apiService.getRepo(username)
-  // // this.repos=repos
-
-  // // }
-
-
-  // // searchRepos(){
-  // //   let username =this.name.value;
-  // //   this.getPuplicReposWithPromise(username)
-  // //   return false;
-  // // }

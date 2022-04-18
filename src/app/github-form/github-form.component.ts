@@ -9,7 +9,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class GithubFormComponent implements OnInit {
 
   username!: string;
-  // searchRepo!: string;
+
   
   @Output () emitSearch = new EventEmitter<any>()
 
@@ -17,7 +17,7 @@ export class GithubFormComponent implements OnInit {
     
 searchRepo(){
   this.emitSearch.emit(this.searchRepo)
-  // console.log(this.searchTerm)
+  
 }
 
   ngOnInit(): void {

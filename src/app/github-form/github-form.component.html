@@ -1,1 +1,9 @@
-<p>github-form works!</p>
+<div class="row">
+    <div class="col-md-12">
+      <form class="well">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Enter github username..." [(ngModel)]="username" name="username" (keyup)="searchUser()" style="text-align:center">
+        </div>
+      </form>
+    </div>
+  </div>

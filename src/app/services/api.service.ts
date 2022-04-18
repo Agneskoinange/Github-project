@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
 import { map } from 'rxjs';
+import 'rxjs/add/operator/map';
 import 'rxjs/Rx';
-import { pipe } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -23,12 +23,12 @@ export class APIService {
   }
   getUserClass() {
     return this.http.get('https://api.github.com/users/' + this.username)
-    .map((result: any) => result);
+    .pipe(map((result: any) => result));
 
   }
   get RepositoryClass() {
     return this.http.get(' https://api.github.com/users/' + this.username + '/repos')
-    .map((result: any) => result);
+    .pipe(map((result: any) => result));
   }
 
   updateRepo(username: string) {

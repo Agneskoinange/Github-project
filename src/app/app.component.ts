@@ -1,5 +1,6 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
 
 import { APIService } from './services/api.service';
 
@@ -15,6 +16,7 @@ export class AppComponent {
   repo: any= [];
   repos: any= [];
   username!: string;
+  
   constructor(private apiservice: APIService) {
     this.apiservice.getRepo().subscribe((repo: any) => {
       console.log(repo);
@@ -41,7 +43,7 @@ export class AppComponent {
        this.repos = repos;
      });
 
-   }
+  }
   
 
 }

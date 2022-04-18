@@ -4,3 +4,73 @@
     </ol>
 
 </div> -->
+
+<div class="container-boby">
+    
+    
+    <div *ngIf="repo">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title" style="font-size: 20px;"><strong>GitHub Name: {{repo.name}}</strong></h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <img class="img-thumbnail" src="{{repo.avatar_url}}">
+              <a class="btn btn-default btn-block" target="_blank" href="{{repo.html_url}}">View Profile</a>
+            </div>
+    
+            <div class="col-md-8 col-sm-8 col-xs-12">
+              <div class="stats">
+                <p>{{repo.bio}}</p>
+                <span class="label label-default">{{repo.public_repos}} Public Repos</span>
+                <span class="label label-success">{{repo.followers}} Followers</span>
+                <span class="label label-info">{{repo.following}} Following</span>
+                <span class="label label-danger">{{repo.company}}</span>
+                <span class="label label-danger">{{repo.type}}</span> 
+              </div>
+              <br/>
+              <ul class="list-group">
+                <li class="list-group-item">
+                  <strong>Username: </strong>{{repo.name}}
+                </li>
+                <li class="list-group-item">
+                  <strong>Location: </strong>{{repo.location}}
+                </li>
+                <li class="list-group-item">
+                  <strong>Email: </strong>{{repo.email}}
+                </li>
+                <li class="list-group-item">
+                  <strong>Member Since: </strong>{{repo.created_at}}
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="container" style="padding: right 500px;">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title" style="text-align:center"><strong>Repositories</strong></h3>
+        </div>
+        <div class="panel-body">
+          <div *ngFor="let repo of repos">
+            <div class="row">
+              <div class="col-md-9">
+                <h4>
+                  <a target="_blank" href="{{repo.html_url}}">{{repo.name}}</a>
+                </h4>
+                <p>{{repo.description}}</p>
+              </div>
+              <div class="col-md-3">
+                <span class="label label-default">{{repo.watchers}} Watchers</span>
+                <span class="label label-primary">{{repo.forks}} Forks</span>
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>

@@ -1,5 +1,6 @@
 
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 
 import { APIService } from './services/api.service';
@@ -18,22 +19,21 @@ export class AppComponent {
   username!: string;
   
   constructor(private apiservice: APIService) {
-    this.apiservice.getRepo().subscribe((repo: any) => {
+    this.apiservice.getUserClass().subscribe((repo: any) => {
       console.log(repo);
       this.repo = repo;
     });
-
     this.apiservice.getRepos().subscribe((repos: any) => {
       this.repos = repos;
     });
   }
 
-    ngOnInit(): void {
+    ngOnInit() {
     }
     
-   searchRepo() {
+   searchUserClass() {
      this.apiservice.updateRepo(this.username);
-     this.apiservice.getRepo().subscribe((repo: any) => {
+     this.apiservice.getUserClass().subscribe((repo: any) => {
        this.repo = repo;
      });
      

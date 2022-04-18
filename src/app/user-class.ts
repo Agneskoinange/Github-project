@@ -1,5 +1,5 @@
 export class UserClass {
-    constructor(private username:string,){
-        this.username
+    constructor(private UserClass:string,){
+        this.UserClass
     }
 }

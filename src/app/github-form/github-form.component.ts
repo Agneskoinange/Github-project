@@ -9,28 +9,18 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class GithubFormComponent implements OnInit {
 
   username!: string;
-  
+  // searchRepo!: string;
   
   @Output () emitSearch = new EventEmitter<any>()
-  form: any;
 
     constructor() { }
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
     
 searchRepo(){
   this.emitSearch.emit(this.searchRepo)
-  
-//   if(this.form.valid){
-//     console.log("Invalid")
-//     return false
-//   }
-// }
+  // console.log(this.searchTerm)
+}
 
-  this.ngOnInit(); void {
+  ngOnInit(): void {
   }
 
-  
-  
 }

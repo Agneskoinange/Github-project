@@ -1,4 +1,4 @@
-export class repos {
+export class Repos {
     // constructor(private access_token:string,){
     //     this.access_token
     // }

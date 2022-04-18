@@ -6,7 +6,8 @@ import 'rxjs/add/operator/map';
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    styleUrls: ['./app.component.css'],
+    providers:[APIService]
   })
   
 export class AppComponent implements OnInit {
@@ -16,7 +17,7 @@ title = 'Github-project';
   repos: any= [];
   username: string | undefined;
   constructor(private apiservice: APIService) {
-    this.apiservice.getUser().subscribe((user: any) => {
+    this.apiservice['getUser']().subscribe((user: any) => {
       console.log(user);
       this.user = user;
     });
@@ -28,8 +29,8 @@ title = 'Github-project';
   ngOnInit() {
   }
    searchUser() {
-     this.apiservice.updateUser(this.username);
-     this.apiservice.getUser().subscribe((user: any) => {
+     this.apiservice['updateUser'](this.username);
+     this.apiservice['getUser']().subscribe((user: any) => {
        this.user = user;
      });
      this.apiservice.getRepos().subscribe((repos: any) => {

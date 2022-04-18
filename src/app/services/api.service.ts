@@ -10,6 +10,7 @@ import 'rxjs/Rx';
 })
 
 export class APIService {
+  [x: string]: any;
   getRepos: any;
   getRepo() {
     throw new Error('Method not implemented.');
@@ -26,7 +27,7 @@ export class APIService {
     .pipe(map((result: any) => result));
 
   }
-  
+
   get RepositoryClass() {
     return this.http.get(' https://api.github.com/users/' + this.username + '/repos')
     .pipe(map((result: any) => result));

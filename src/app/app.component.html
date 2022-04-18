@@ -34,42 +34,53 @@
 
   <app-github-form></app-github-form>
 
-<div class="container-boby">
-    <div *ngIf="repo">
+  <div class="container-boby">
+    <!--Search bar area-->
+    <div class="row">
+      <div class="col-md-12">
+        <form class="well">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Enter github username..." [(ngModel)]="username" name="username" (keyup)="searchUser()" style="text-align:center">
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- End of search bar area -->
+    
+    <div *ngIf="user">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title" style="font-size: 20px;"><strong>GitHub Name: {{repo.name}}</strong></h3>
+          <h3 class="panel-title" style="font-size: 20px;"><strong>GitHub Name: {{user.name}}</strong></h3>
         </div>
-
         <div class="panel-body">
           <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-12">
-              <img class="img-thumbnail" src="{{repo.avatar_url}}">
-              <a class="btn btn-default btn-block" target="_blank" href="{{repo.html_url}}">View Profile</a>
+              <img class="img-thumbnail" src="{{user.avatar_url}}">
+              <a class="btn btn-default btn-block" target="_blank" href="{{user.html_url}}">View Profile</a>
             </div>
     
             <div class="col-md-8 col-sm-8 col-xs-12">
               <div class="stats">
-                <p>{{repo.bio}}</p>
-                <span class="label label-default">{{repo.public_repos}} Public Repos</span>
-                <span class="label label-success">{{repo.followers}} Followers</span>
-                <span class="label label-info">{{repo.following}} Following</span>
-                <span class="label label-danger">{{repo.company}}</span>
-                <span class="label label-danger">{{repo.type}}</span> 
+                <p>{{user.bio}}</p>
+                <span class="label label-default">{{user.public_repos}} Public Repos</span>
+                <span class="label label-success">{{user.followers}} Followers</span>
+                <span class="label label-info">{{user.following}} Following</span>
+                <span class="label label-danger">{{user.company}}</span>
+                <span class="label label-danger">{{user.type}}</span> 
               </div>
               <br/>
               <ul class="list-group">
                 <li class="list-group-item">
-                  <strong>Username: </strong>{{repo.name}}
+                  <strong>Username: </strong>{{user.name}}
                 </li>
                 <li class="list-group-item">
-                  <strong>Location: </strong>{{repo.location}}
+                  <strong>Location: </strong>{{user.location}}
                 </li>
                 <li class="list-group-item">
-                  <strong>Email: </strong>{{repo.email}}
+                  <strong>Email: </strong>{{user.email}}
                 </li>
                 <li class="list-group-item">
-                  <strong>Member Since: </strong>{{repo.created_at}}
+                  <strong>Member Since: </strong>{{user.created_at}}
                 </li>
               </ul>
             </div>
@@ -79,7 +90,7 @@
     <div class="container" style="padding: right 500px;">
       <div class="panel panel-default">
         <div class="panel-heading">
-          <h3 class="panel-title" style="text-align:center"><strong>Repositories</strong></h3>
+          <h3 class="panel-title" style="text-align:center"><strong>User Repos</strong></h3>
         </div>
         <div class="panel-body">
           <div *ngFor="let repo of repos">
@@ -100,5 +111,5 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
+    </div>
+    </div>

@@ -1,0 +1,21 @@
+#repo{ 
+    color: rgb(117,169,67);
+    margin-right: 20px;
+
+    }
+#followers{
+margin-right: 20px;
+color: rgb(239,87,146);
+    
+}
+
+#following{
+ color: cornflowerblue;
+ margin-right: 20px;
+ }
+
+#form {
+    margin-right: 20px;
+    display: flex;
+   width: 100%;
+}

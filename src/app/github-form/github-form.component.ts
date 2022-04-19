@@ -6,21 +6,20 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   templateUrl: './github-form.component.html',
   styleUrls: ['./github-form.component.css']
 })
+
 export class GithubFormComponent implements OnInit {
 
   username!: string;
-
-  
-  @Output () emitSearch = new EventEmitter<any>()
-
-    constructor() { }
-    
-searchRepo(){
-  this.emitSearch.emit(this.searchRepo)
-  
-}
-
+ 
   ngOnInit(): void {
+  }
+  
+  @Output () emitSearchUser = new EventEmitter<any>()
+
+  constructor() { }
+    
+  searchUser(){
+    this.emitSearchUser.emit(this.username)
   }
 
 }

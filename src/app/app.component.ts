@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { APIService } from './services/api.service';
+import { GithubFormComponent } from './github-form/github-form.component';
 
 
 @Component({
@@ -38,4 +39,6 @@ title = 'Github-project';
        this.repos = repos;
      });
   }
+
+  
 }

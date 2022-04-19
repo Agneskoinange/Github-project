@@ -1,7 +1,7 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, } from '@angular/core';
 import { APIService } from './services/api.service';
-// import { GithubFormComponent } from './github-form/github-form.component';
+
 
 
 @Component({
@@ -13,8 +13,5 @@ import { APIService } from './services/api.service';
   
 export class AppComponent {
 title = 'Github-project';
-
-  
-
   
 }

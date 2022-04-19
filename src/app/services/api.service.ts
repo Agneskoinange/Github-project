@@ -3,35 +3,34 @@ import { Injectable } from '@angular/core';
 import { map } from 'rxjs';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class APIService {
-  [x: string]: any;
-  getRepos: any;
-  getRepo() {
-    throw new Error('Method not implemented.');
-  }
+  
   username: string;
+  // Repos: any;
+  // searchUser: any;
 
   constructor(private http: HttpClient) {
-    console.log('Github Service Ready...');
-    this.username = 'agneskoinange';
+    
+    this.username = 'AgnesKoinange';
 
   }
-  get User() {
+  getUser() {
     return this.http.get('https://api.github.com/users/' + this.username)
     .pipe(map((result: any) => result));
 
   }
 
-  get Repo() {
+  getRepos() {
     return this.http.get(' https://api.github.com/users/' + this.username + '/repos')
     .pipe(map((result: any) => result));
   }
 
-  updateRepo(username: string) {
+  updateUser(username: string) {
     this.username = username;
   }
 

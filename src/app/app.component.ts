@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { APIService } from './services/api.service';
-import 'rxjs/add/operator/map';
+
 
 @Component({
     selector: 'app-root',
@@ -15,10 +15,9 @@ title = 'Github-project';
 
   user: any= [];
   repos: any= [];
-  username: string | undefined;
+  username!: string;
   constructor(private apiservice: APIService) {
-    this.apiservice['getUser']().subscribe((user: any) => {
-      console.log(user);
+    this.apiservice. getUser().subscribe((user: any) => {
       this.user = user;
     });
     this.apiservice.getRepos().subscribe((repos: any) => {
@@ -26,17 +25,17 @@ title = 'Github-project';
       this.repos = repos;
     });
   }
-  ngOnInit() {
-  }
+    ngOnInit() {
+    }
+
    searchUser() {
-     this.apiservice['updateUser'](this.username);
-     this.apiservice['getUser']().subscribe((user: any) => {
+     this.apiservice.updateUser(this.username);
+     this.apiservice.getUser().subscribe((user: any) => {
        this.user = user;
      });
+
      this.apiservice.getRepos().subscribe((repos: any) => {
-      
        this.repos = repos;
      });
-
-   }
+    }
 }

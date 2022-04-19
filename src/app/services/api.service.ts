@@ -25,6 +25,9 @@ export class APIService {
 
   }
 
+ getUsername(username:string){
+   return username
+}
   getRepos() {
     return this.http.get(' https://api.github.com/users/' + this.username + '/repos')
     .pipe(map((result: any) => result));

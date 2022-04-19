@@ -37,5 +37,5 @@ title = 'Github-project';
      this.apiservice.getRepos().subscribe((repos: any) => {
        this.repos = repos;
      });
-    }
+  }
 }

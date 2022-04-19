@@ -1,10 +1,13 @@
 
 
   <div class="container">
-    <div class="row">
-      <div class="col-md-8" style="">
+    <div class="row" id="form" >
+      <div class="col-md-2">
+
+      </div>
+      <div class=" col-md-8 col-sm-8 col-xs-8" >
         <form>
-          <div class="form-group">
+          <div class="form-group" >
             <input type="text"  class="form-control" placeholder="Enter Your github username..." [(ngModel)]="username" name="username" (keyup)="searchUser()" style="text-align:center">
           </div>
         </form>
@@ -12,28 +15,25 @@
     </div> 
 
     <div *ngIf="user">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title" style="font-size: 20px;"><strong>GitHub Name: {{user.name}}</strong></h3>
+      <div class="">
+        <div class="row">
+          <h3 class="col-md-8" style="font-size: 20px; text-align: center;"><strong>GitHub Name: {{user.name}}</strong></h3>
         </div>
-        <div class="panel-body">
+        <div >
           <div class="row">
-            <div class="col-md-4 col-sm-4 col-xs-12">
-              <img class="img-thumbnail" src="{{user.avatar_url}}">
-              <a class="btn btn-default btn-block" target="_blank" href="{{user.html_url}}">View Profile</a>
-            </div>
+            
     
             <div class="col-md-8 col-sm-8 col-xs-12">
-              <div class="stats">
+              <div class="stats" style= "text-align: center" >
                 <p>{{user.bio}}</p>
-                <span >{{user.public_repos}} Repositories </span>
-                <span >{{user.followers}} Followers</span>
-                <span >{{user.following}} Following</span>
-                <span >{{user.company}}</span>
-                <span >{{user.type}}</span> 
+                <button id="repo" type="button" class="btn btn-light"><span >{{user.public_repos}} Repositories </span></button>
+                <button id="followers" type="button" class="btn btn-light"><span > {{user.followers}} Followers</span></button>
+                <button id="following" type="button" class="btn btn-light"><span > {{user.following}} Following</span></button>
+                
               </div>
+
               <br/>
-              <ul >
+              <ul style= "text-align: left">
                 <li class="list-group-item">
                   <strong>Username: </strong>{{user.name}}
                 </li>
@@ -45,15 +45,19 @@
                 </li>
               </ul>
             </div>
+            <div class="col-md-4 col-sm-4 col-xs-12">
+              <img class="img-thumbnail" src="{{user.avatar_url}}">
+              <a class="btn btn-default btn-block" target="_blank" href="{{user.html_url}}">View Profile</a>
+            </div>
+
           </div>
         </div>
       </div>
-    <div class="container" style="padding: right 500px;">
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h3 class="panel-title" style="text-align:center"><strong>Your Repos</strong></h3>
+    <div class="container" >
+      <div>
+        <div>
+          <h3 class="" style="text-align:center"><strong>Your Repos</strong></h3>
         </div>
-        <div class="panel-body">
           <div *ngFor="let repo of repos">
             <div class="row">
               <div class="col-md-9">
@@ -63,14 +67,13 @@
                 <p>{{repo.description}}</p>
               </div>
               <div class="col-md-3">
-                <span class="label label-default">{{repo.watchers}} Watchers</span>
-                <span class="label label-primary">{{repo.forks}} Forks</span>
+                <span class="label label-default"> {{repo.watchers}} Watchers</span>
+                <span class="label label-primary"> {{repo.forks}} Forks</span>
               </div>
             </div>
             <hr>
           </div>
         </div>
-      </div>
     </div>
   </div>
 </div>
